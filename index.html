@@ -1,3 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    
+    <!-- DNS Prefetch for faster domain resolution -->
+    <link rel="dns-prefetch" href="//play.google.com">
+    <link rel="dns-prefetch" href="//apps.apple.com">
+    
+    <!-- Preconnect to app store domains for faster connection -->
+    <link rel="preconnect" href="https://play.google.com">
+    <link rel="preconnect" href="https://apps.apple.com">
+
+    <script>
+        // Immediate redirect script with optimized logic
+        (function() {
+            const ua = navigator.userAgent.toLowerCase();
+            const redirectUrl = ua.includes("android")
+                ? "https://play.google.com/store/apps/details?id=market.omanvehicles.ovm"
+                : ua.includes("iphone") || ua.includes("ipad")
+                ? "https://apps.apple.com/app/digital-mall/id1547222763?l"
+                : "https://om.digitalmall.app";
+
+            // Use location.replace for faster redirects without adding to history
+            window.location.replace(redirectUrl);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Fallback content for non-JS environments -->
+    <noscript>
+        <p>If you are not redirected, click the appropriate link below:</p>
+        <ul>
+            <li><a href="https://play.google.com/store/apps/details?id=market.omanvehicles.ovm">Google Play</a></li>
+            <li><a href="https://apps.apple.com/app/digital-mall/id1547222763?l">iOS App Store</a></li>
+        </ul>
+    </noscript>
+</body>
+</html>
+
+
+<!--
+
 <head>
     <link rel="dns-prefetch" href="//play.google.com">
     <link rel="dns-prefetch" href="//apps.apple.com">
@@ -14,7 +59,7 @@
         })();
     </script>
 </head>
-
+-->
 
 <!--
 <script>
