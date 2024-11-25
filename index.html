@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
+        (function() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                window.location.replace("https://play.google.com/store/apps/details?id=market.omanvehicles.ovm");
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.replace("https://apps.apple.com/om/app/digital-mall/id1547222763?l");
+            } else {
+                window.location.replace("https://om.digitalmall.app");
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
         if (/android/i.test(userAgent)) {
@@ -20,3 +44,4 @@
     <p>Redirecting to the app store...</p>
 </body>
 </html>
+-->
