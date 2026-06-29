@@ -3,127 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>Redirecting to Haddiya...</title>
     
-    <!-- DNS Prefetch for faster domain resolution -->
     <link rel="dns-prefetch" href="//play.google.com">
     <link rel="dns-prefetch" href="//apps.apple.com">
-    
-    <!-- Preconnect to app store domains for faster connection -->
     <link rel="preconnect" href="https://play.google.com">
     <link rel="preconnect" href="https://apps.apple.com">
 
     <script>
-        // Immediate redirect script with optimized logic
         (function() {
             const ua = navigator.userAgent.toLowerCase();
-            const redirectUrl = ua.includes("android")
-                ? "https://play.google.com/store/apps/details?id=market.omanvehicles.ovm"
-                : ua.includes("iphone") || ua.includes("ipad")
-                ? "https://apps.apple.com/app/digital-mall/id1547222763?l"
-                : "https://om.digitalmall.app";
+            
+            const playStoreUrl = "https://play.google.com/store/apps/details?id=com.appsbunches.haddiya";
+            const appStoreUrl = "https://apps.apple.com/app/id6752947035";
+            const fallbackUrl = "https://haddiya.com";
 
-            // Use location.replace for faster redirects without adding to history
-            window.location.replace(redirectUrl);
-        })();
-    </script>
-</head>
-<body>
-    <!-- Fallback content for non-JS environments -->
-    <noscript>
-        <p>If you are not redirected, click the appropriate link below:</p>
-        <ul>
-            <li><a href="https://play.google.com/store/apps/details?id=market.omanvehicles.ovm">Google Play</a></li>
-            <li><a href="https://apps.apple.com/app/digital-mall/id1547222763?l">iOS App Store</a></li>
-        </ul>
-    </noscript>
-</body>
-</html>
-
-
-<!--
-
-<head>
-    <link rel="dns-prefetch" href="//play.google.com">
-    <link rel="dns-prefetch" href="//apps.apple.com">
-    <script>
-        (function() {
-            const ua = navigator.userAgent.toLowerCase();
-            const redirectUrl = ua.includes("android")
-                ? "https://play.google.com/store/apps/details?id=market.omanvehicles.ovm"
-                : ua.includes("iphone") || ua.includes("ipad")
-                ? "https://apps.apple.com/app/digital-mall/id1547222763?l"
-                : "https://om.digitalmall.app";
-
-            window.location.replace(redirectUrl);
-        })();
-    </script>
-</head>
--->
-
-<!--
-<script>
-    const ua = navigator.userAgent.toLowerCase();
-    const isAndroid = ua.includes("android");
-    const isiOS = ua.includes("iphone") || ua.includes("ipad");
-
-    if (isAndroid) {
-        window.location.replace("https://play.google.com/store/apps/details?id=market.omanvehicles.ovm");
-    } else if (isiOS) {
-        window.location.replace("https://apps.apple.com/app/digital-mall/id1547222763?l");
-    } else {
-        window.location.replace("https://om.digitalmall.app");
-    }
-</script>
--->
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        (function() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-            if (/android/i.test(userAgent)) {
-                window.location.replace("https://play.google.com/store/apps/details?id=market.omanvehicles.ovm");
-            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.replace("https://apps.apple.com/om/app/digital-mall/id1547222763?l");
-            } else {
-                window.location.replace("https://om.digitalmall.app");
+            // 1. Handle Android Devices
+            if (ua.includes("android")) {
+                // This forces Android to wake up the app directly via its package name.
+                // If it's not installed, it falls back to the Google Play Store seamlessly.
+                window.location.replace(
+                    "intent://open#Intent;scheme=com.appsbunches.haddiya;package=com.appsbunches.haddiya;S.browser_fallback_url=" + encodeURIComponent(playStoreUrl) + ";end"
+                );
+            } 
+            
+            // 2. Handle iOS Devices (iPhone, iPad, iPod)
+            else if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
+                // Since this runs on GitHub, iOS requires a direct redirect to the App Store.
+                window.location.replace(appStoreUrl);
+            } 
+            
+            // 3. Desktop / Unsupported Devices Fallback
+            else {
+                window.location.replace(fallbackUrl);
             }
         })();
     </script>
 </head>
 <body>
+    <div style="text-align: center; margin-top: 50px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        <h2>Connecting to Haddiya...</h2>
+        <p>If you are not redirected automatically, please choose your store:</p>
+        <div style="margin-top: 20px;">
+            <a href="https://apps.apple.com/app/id6752947035" style="display: inline-block; padding: 10px 20px; background-color: #000; color: #fff; text-decoration: none; border-radius: 5px; margin: 5px;">App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.appsbunches.haddiya" style="display: inline-block; padding: 10px 20px; background-color: #A4C639; color: #fff; text-decoration: none; border-radius: 5px; margin: 5px;">Google Play</a>
+        </div>
+    </div>
+
+    <noscript>
+        <p>If you are not redirected, click the appropriate link below:</p>
+        <ul>
+            <li><a href="https://play.google.com/store/apps/details?id=com.appsbunches.haddiya">Google Play Store</a></li>
+            <li><a href="https://apps.apple.com/app/id6752947035">Apple App Store</a></li>
+        </ul>
+    </noscript>
 </body>
 </html>
--->
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-        if (/android/i.test(userAgent)) {
-            window.location.href = "https://play.google.com/store/apps/details?id=market.omanvehicles.ovm";
-        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            window.location.href = "https://apps.apple.com/om/app/digital-mall/id1547222763?l";
-        } else {
-            window.location.href = "https://om.digitalmall.app";
-        }
-    </script>
-</head>
-<body>
-    <p>Redirecting to the app store...</p>
-</body>
-</html>
--->
